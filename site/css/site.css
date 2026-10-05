@@ -1,0 +1,260 @@
+:root {
+  --bg: #07080b;
+  --ink: #f4f1e8;
+  --muted: #9aa0a8;
+  --fluo: #e8f27a;
+  --navy: #0d3f86;
+  --red: #ff3b30;
+  --line: rgba(244, 241, 232, 0.14);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Arial", Helvetica, sans-serif;
+}
+img, video { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.8rem 1.25rem;
+  background: rgba(7, 8, 11, 0.9);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.brand {
+  font-family: Impact, Haettenschweiler, sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+}
+.bar nav {
+  display: flex;
+  gap: 1rem;
+  margin-right: auto;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.bar nav a:hover { color: var(--fluo); }
+.pill {
+  border: 1px solid var(--fluo);
+  color: var(--fluo);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  padding: 0.35rem 0.55rem;
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7,8,11,0.92) 0%, rgba(7,8,11,0.2) 48%, rgba(7,8,11,0.45) 100%);
+}
+.hero-copy {
+  position: relative;
+  padding: 8vh 6vw 10vh;
+}
+.kicker {
+  margin: 0 0 0.4rem;
+  color: var(--fluo);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+h1 {
+  margin: 0;
+  font-family: Impact, Haettenschweiler, sans-serif;
+  font-size: clamp(5rem, 18vw, 12rem);
+  font-weight: 400;
+  line-height: 0.84;
+  letter-spacing: 0.02em;
+}
+.tag {
+  margin: 0.6rem 0 0;
+  font-family: Impact, Haettenschweiler, sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.bal {
+  margin: 1rem 0 0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.bal strong { color: var(--red); }
+
+.marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background: #0c0e12;
+}
+.marquee-track {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  padding: 0.7rem 0;
+  animation: tick 22s linear infinite;
+  font-family: Impact, Haettenschweiler, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fluo);
+}
+.marquee-track span::before {
+  content: "●";
+  margin-right: 2.5rem;
+  color: var(--red);
+}
+@keyframes tick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+main { padding: 4rem 6vw 5rem; }
+.sec { margin-bottom: 1.2rem; }
+.sec h2 {
+  margin: 0;
+  font-family: Impact, Haettenschweiler, sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+.sec p { margin: 0.2rem 0 0; color: var(--muted); }
+
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 28vw);
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.6rem;
+  scroll-snap-type: x mandatory;
+}
+.rail figure, .memes figure, .banner {
+  margin: 0;
+}
+.rail figure {
+  scroll-snap-align: start;
+  background: #101218;
+  border: 1px solid var(--line);
+}
+.rail video {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #000;
+}
+.rail .tall video { object-fit: contain; background: #05060a; }
+.rail figcaption, .memes figcaption, .banner figcaption {
+  padding: 0.55rem 0.7rem 0.7rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.memes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+.memes img { width: 100%; height: auto; background: #000; }
+.memes figcaption { display: none; }
+
+.mark-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.7fr 1fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+.mark-grid figure { margin: 0; }
+.float-card img {
+  width: 100%;
+  animation: float 4.5s ease-in-out infinite;
+}
+.spin-coin video {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #000;
+}
+.big {
+  margin: 0;
+  font-family: Impact, Haettenschweiler, sans-serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.85;
+}
+.mark-copy p { margin: 0.4rem 0; }
+.fine { color: var(--muted); font-size: 0.92rem; line-height: 1.45; max-width: 36ch; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.banner { margin: 1rem 0 1.4rem; }
+.banner img { width: 100%; height: auto; border: 1px solid var(--line); }
+.files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+.files li {
+  border: 1px solid var(--line);
+  padding: 0.4rem 0.6rem;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+footer {
+  padding: 1.5rem 6vw 2.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 800px) {
+  .bar nav { display: none; }
+  .memes, .mark-grid { grid-template-columns: 1fr; }
+  .rail { grid-auto-columns: 78vw; }
+  h1 { font-size: 4.2rem; }
+  .tag { font-size: 1.25rem; }
+  .hero-copy { padding: 0 1.1rem 1.75rem; }
+  main { padding: 2.5rem 1.1rem 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .float-card img { animation: none; }
+  video { display: none; }
+  .hero { min-height: 70svh; background: #07080b url("../media/still_bodega.jpg") center/cover; }
+}
